@@ -11,4 +11,63 @@
         </mxCell>
 
         <!-- Istio Ingress (Backend NLB) -->
-        <mxCell id="istio-ingress" value="Istio Ingress NLB (Backend APIs)" style="shape=cloud;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;"
+        <mxCell id="istio-ingress" value="Istio Ingress NLB (Backend APIs)" style="shape=cloud;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="120" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- SIT Namespace -->
+        <mxCell id="sit" value="SIT Namespace" style="shape=ellipse;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- DEV Namespace -->
+        <mxCell id="dev" value="DEV Namespace" style="shape=rectangle;rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="60" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- QA Namespace -->
+        <mxCell id="qa" value="QA Namespace" style="shape=rectangle;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="200" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- UAT Namespace -->
+        <mxCell id="uat" value="UAT Namespace" style="shape=rectangle;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="340" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows: ALB --> SIT (Frontend UI goes to SIT) -->
+        <mxCell id="edge-alb-sit" style="endArrow=block;strokeColor=#d79b00;" edge="1" parent="1" source="alb" target="sit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows: Istio Ingress --> SIT (API calls) -->
+        <mxCell id="edge-istio-sit" style="endArrow=block;strokeColor=#6c8ebf;" edge="1" parent="1" source="istio-ingress" target="sit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- SIT connects to DEV/QA/UAT -->
+        <mxCell id="edge1" style="endArrow=block;strokeColor=#6c8ebf;" edge="1" parent="1" source="sit" target="dev">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge2" style="endArrow=block;strokeColor=#6c8ebf;" edge="1" parent="1" source="sit" target="qa">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge3" style="endArrow=block;strokeColor=#6c8ebf;" edge="1" parent="1" source="sit" target="uat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Isolation labels -->
+        <mxCell id="isolation1" value="Isolated" style="text;fillColor=none;strokeColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="100" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="isolation2" value="Isolated" style="text;fillColor=none;strokeColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="240" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="isolation3" value="Isolated" style="text;fillColor=none;strokeColor=none;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="380" width="80" height="30" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
