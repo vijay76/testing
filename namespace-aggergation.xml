@@ -1,0 +1,14 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="SIT Env Connectivity with Ingress" id="sit-env-connectivity-ingress">
+    <mxGraphModel dx="1020" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ALB Ingress (Frontend) -->
+        <mxCell id="alb" value="AWS ALB Ingress (Frontend)" style="shape=cloud;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Istio Ingress (Backend NLB) -->
+        <mxCell id="istio-ingress" value="Istio Ingress NLB (Backend APIs)" style="shape=cloud;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;"
