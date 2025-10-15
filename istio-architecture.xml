@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-10-15T00:00:00.000Z" agent="5.0 (Windows)" etag="r1" version="20.2.3" type="device">
+  <diagram id="istio-highlevel" name="Istio High-Level">
+    <mxGraphModel dx="1296" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Control Plane group -->
+        <mxCell id="cp_group" value="Istio Control Plane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3C4;strokeColor=#D8B400;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="770" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- istiod -->
+        <mxCell id="istiod" value="istiod\n(Control Plane)\nHA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4B6BFB;fontSize=11;" vertex="1" parent="cp_group">
+          <mxGeometry x="60" y="60" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- ingress gateway -->
+        <mxCell id="ingress_gw" value="istio-ingressgateway\n(Horizontal Scale)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4CAF50;fontSize=11;" vertex="1" parent="cp_group">
+          <mxGeometry x="240" y="60" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- egress gateway -->
+        <mxCell id="egress_gw" value="istio-egressgateway\n(Optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FF7043;fontSize=11;" vertex="1" parent="cp_group">
+          <mxGeometry x="460" y="60" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- cert-manager -->
+        <mxCell id="certmgr" value="cert-manager / SDS\n(Certificate Management)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9C27B0;fontSize=11;" vertex="1" parent="cp_group">
+          <mxGeometry x="640" y="60" width="170" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Data Plane group -->
+        <mxCell id="dp_group" value="Data Plane - Microservices (Envoy sidecars)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="770" height="340" as="geometry"/>
+        </mxCell>
+
+        <!-- Microservice A (with sidecar) -->
+        <mxCell id="svcA" value="Microservice A\nPod\n+ Envoy sidecar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;fontSize=11;" vertex="1" parent="dp_group">
+          <mxGeometry x="60" y="240" width="170" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Microservice B -->
+        <mxCell id="svcB" value="Microservice B\nPod\n+ Envoy sidecar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;fontSize=11;" vertex="1" parent="dp_group">
+          <mxGeometry x="260" y="240" width="170" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Microservice C -->
+        <mxCell id="svcC" value="Microservice C\nPod\n+ Envoy sidecar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;fontSize=11;" vertex="1" parent="dp_group">
+          <mxGeometry x="460" y="240" width="170" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Microservice D -->
+        <mxCell id="svcD" value="Microservice D\nPod\n+ Envoy sidecar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;fontSize=11;" vertex="1" parent="dp_group">
+          <mxGeometry x="660" y="240" width="170" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Observability group -->
+        <mxCell id="obs_group" value="Observability Stack" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="580" width="770" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Prometheus -->
+        <mxCell id="prom" value="Prometheus\n(Metrics)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0D47A1;fontSize=11;" vertex="1" parent="obs_group">
+          <mxGeometry x="80" y="600" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Grafana -->
+        <mxCell id="graf" value="Grafana\n(Dashboards)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontSize=11;" vertex="1" parent="obs_group">
+          <mxGeometry x="260" y="600" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Kiali -->
+        <mxCell id="kiali" value="Kiali\n(Mesh Topology)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontSize=11;" vertex="1" parent="obs_group">
+          <mxGeometry x="440" y="600" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Jaeger -->
+        <mxCell id="jaeger" value="Jaeger / OTEL\n(Tracing)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#BF360C;fontSize=11;" vertex="1" parent="obs_group">
+          <mxGeometry x="620" y="600" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Fluent Bit (logging) -->
+        <mxCell id="fluent" value="Fluent Bit\n(Logging)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#455A64;fontSize=11;" vertex="1" parent="obs_group">
+          <mxGeometry x="450" y="710" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Connectors: ingress -> services -->
+        <mxCell id="c_ing_dp_A" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#888;" edge="1" parent="1" source="ingress_gw" target="svcA">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_ing_dp_B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#888;" edge="1" parent="1" source="ingress_gw" target="svcB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_ing_dp_C" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#888;" edge="1" parent="1" source="ingress_gw" target="svcC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- istiod -> services -->
+        <mxCell id="c_istiod_A" style="edgeStyle=elbowEdgeStyle;endArrow=none;html=1;strokeColor=#444;" edge="1" parent="1" source="istiod" target="svcA">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_istiod_B" style="edgeStyle=elbowEdgeStyle;endArrow=none;html=1;strokeColor=#444;" edge="1" parent="1" source="istiod" target="svcB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Cert manager to istiod and sidecars -->
+        <mxCell id="c_cert_istiod" style="edgeStyle=elbowEdgeStyle;endArrow=block;html=1;strokeColor=#9C27B0;" edge="1" parent="1" source="certmgr" target="istiod">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_cert_A" style="edgeStyle=elbowEdgeStyle;endArrow=block;html=1;strokeColor=#9C27B0;" edge="1" parent="1" source="certmgr" target="svcA">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Service-to-service mTLS arrows (A->B, C->D) -->
+        <mxCell id="c_A_B" style="edgeStyle=elbowEdgeStyle;endArrow=block;html=1;strokeColor=#1976D2;dashed=1;" edge="1" parent="1" source="svcA" target="svcB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_C_D" style="edgeStyle=elbowEdgeStyle;endArrow=block;html=1;strokeColor=#1976D2;dashed=1;" edge="1" parent="1" source="svcC" target="svcD">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Services -> Prometheus / Jaeger / Fluent -->
+        <mxCell id="c_A_prom" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#0D47A1;" edge="1" parent="1" source="svcA" target="prom">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_B_prom" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#0D47A1;" edge="1" parent="1" source="svcB" target="prom">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_C_jaeger" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#BF360C;" edge="1" parent="1" source="svcC" target="jaeger">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_D_jaeger" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#BF360C;" edge="1" parent="1" source="svcD" target="jaeger">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_A_fluent" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#455A64;" edge="1" parent="1" source="svcA" target="fluent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_B_fluent" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#455A64;" edge="1" parent="1" source="svcB" target="fluent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Prometheus -> Grafana / Kiali -->
+        <mxCell id="c_prom_graf" style="edgeStyle=elbowEdgeStyle;endArrow=block;html=1;strokeColor=#0D47A1;" edge="1" parent="1" source="prom" target="graf">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_prom_kiali" style="edgeStyle=elbowEdgeStyle;endArrow=block;html=1;strokeColor=#0D47A1;" edge="1" parent="1" source="prom" target="kiali">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Jaeger -> OTEL note (represented by label) -->
+        <mxCell id="jaeger_note" value="(traces -> OpenTelemetry / backend)" style="text;html=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="620" y="720" width="200" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Labels / legend -->
+        <mxCell id="legend" value="Legend: dashed = mTLS (Envoy), arrows = telemetry / control" style="text;html=1;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="880" width="770" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
